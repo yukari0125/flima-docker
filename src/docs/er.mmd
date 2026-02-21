@@ -1,0 +1,89 @@
+erDiagram
+    USERS {
+        bigint id PK
+        string name
+        string email UK
+        timestamp email_verified_at
+        string password
+        string postal_code
+        string address
+        string building
+        string avatar_path
+        text two_factor_secret
+        text two_factor_recovery_codes
+        timestamp two_factor_confirmed_at
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    ITEMS {
+        bigint id PK
+        bigint user_id FK
+        string name
+        string brand
+        string description
+        int price
+        string condition
+        string image_path
+        string status
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    CATEGORIES {
+        bigint id PK
+        string name UK
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    CATEGORY_ITEM {
+        bigint id PK
+        bigint item_id FK
+        bigint category_id FK
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    COMMENTS {
+        bigint id PK
+        bigint user_id FK
+        bigint item_id FK
+        string comment
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    FAVORITES {
+        bigint id PK
+        bigint user_id FK
+        bigint item_id FK
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    PURCHASES {
+        bigint id PK
+        bigint user_id FK
+        bigint item_id FK
+        string payment_method
+        string postal_code
+        string address
+        string building
+        int price
+        string status
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    USERS ||--o{ ITEMS : sells
+    USERS ||--o{ COMMENTS : writes
+    USERS ||--o{ FAVORITES : likes
+    USERS ||--o{ PURCHASES : buys
+
+    ITEMS ||--o{ COMMENTS : has
+    ITEMS ||--o{ FAVORITES : has
+    ITEMS ||--o{ PURCHASES : purchased_as
+
+    ITEMS ||--o{ CATEGORY_ITEM : categorized_by
+    CATEGORIES ||--o{ CATEGORY_ITEM : includes
