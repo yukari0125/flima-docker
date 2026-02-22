@@ -1,14 +1,14 @@
 # フリマアプリ（flima）
 
-Laravel 12 + Fortify で構築したフリマアプリです。  
+Laravel 11 + Fortify で構築したフリマアプリです。  
 会員登録、メール認証、商品出品、購入、いいね、コメント、マイページを実装しています。
 
 ## 技術スタック
-- PHP `8.4` / Laravel `12`
+- PHP `8.3` / Laravel `11`
 - Laravel Fortify（認証・メール認証）
 - MySQL `8.0`
 - Nginx
-- Tailwind CSS / Vite
+- CSS / Vite
 - Mailhog（メール確認）
 - Docker / Docker Compose
 

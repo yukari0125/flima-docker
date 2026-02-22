@@ -1,4 +1,4 @@
-FROM php:8.4-fpm
+FROM php:8.3-fpm-bookworm
 
 RUN apt-get update && apt-get install -y \
     git unzip zip libzip-dev libpng-dev libonig-dev libicu-dev \
