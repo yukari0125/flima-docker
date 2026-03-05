@@ -1,0 +1,294 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  background: #fff;
+  color: #222;
+}
+
+.header {
+  background: #000;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+}
+
+.header img {
+  height: 30px;
+  width: auto;
+}
+
+.container {
+  max-width: 700px;
+  margin: 64px auto 0;
+  padding: 0 24px 56px;
+}
+
+.page-title {
+  margin: 0 0 38px;
+  text-align: center;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.form {
+  display: grid;
+  gap: 24px;
+}
+
+.lead {
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #111;
+  font-weight: 700;
+}
+
+.status {
+  margin-top: 10px;
+  color: #0f8a3e;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.field input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #9b9b9b;
+  border-radius: 5px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.error {
+  margin-top: 8px;
+  color: #e60026;
+  font-size: 13px;
+}
+
+.button {
+  width: 100%;
+  height: 58px;
+  border: 0;
+  border-radius: 8px;
+  background: #ff5a5f;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #f04a50;
+}
+
+.button.secondary {
+  background: #d9d9d9;
+  border: 1px solid #666;
+  color: #111;
+}
+
+.button.secondary:hover {
+  background: #d0d0d0;
+}
+
+.actions {
+  display: grid;
+  gap: 24px;
+}
+
+.link {
+  display: block;
+  margin-top: 28px;
+  text-align: center;
+  color: #2b73ff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .container {
+    margin: 28px 16px 0;
+    padding: 0 10px 36px;
+  }
+
+  .page-title {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+  .field label {
+    font-size: 16px;
+  }
+
+  .field input {
+    font-size: 14px;
+    height: 44px;
+  }
+
+  .button {
+    font-size: 18px;
+    height: 54px;
+  }
+
+  .link {
+    font-size: 16px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+}
+
+/* Login page fine-tuning for image4 */
+.auth-login .header {
+  height: 80px;
+}
+
+.auth-login {
+  background: #fff;
+}
+
+.auth-register {
+  background: #fff;
+}
+
+.auth-login .header img {
+  height: 30px;
+}
+
+.auth-login .container {
+  max-width: 800px;
+  margin-top: 72px;
+}
+
+.auth-login .page-title {
+  margin-bottom: 46px;
+  font-size: 38px;
+}
+
+.auth-login .form {
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.auth-login .field input {
+  height: 44px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.auth-login .field label {
+  font-size: 18px;
+}
+
+.auth-login .link {
+  font-weight: 700;
+}
+
+/* Verification guide page (image2) */
+.auth-verify-guide {
+  background: #f2f2f2;
+}
+
+.auth-verify-guide .header {
+  height: 72px;
+}
+
+.auth-verify-guide .header img {
+  height: 28px;
+}
+
+.verify-guide-container {
+  max-width: 860px;
+  min-height: calc(100vh - 72px);
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+.verify-guide-lead {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 24px;
+  line-height: 1.7;
+  font-weight: 700;
+}
+
+.verify-guide-actions {
+  margin-top: 44px;
+  justify-items: center;
+  gap: 18px;
+}
+
+.verify-guide-button {
+  width: 560px;
+  height: 58px;
+  border: 1px solid #8e8e8e;
+  border-radius: 12px;
+  background: #d9d9d9;
+  color: #111;
+  font-size: 26px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.verify-guide-link {
+  margin-top: 0;
+  border: 0;
+  background: transparent;
+  color: #2b73ff;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .verify-guide-container {
+    min-height: calc(100vh - 72px);
+    margin-top: 0;
+    max-width: 720px;
+    padding-bottom: 48px;
+  }
+
+  .verify-guide-lead {
+    font-size: 20px;
+    line-height: 1.7;
+  }
+
+  .verify-guide-button {
+    width: 100%;
+    max-width: 500px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .verify-guide-link {
+    font-size: 18px;
+  }
+}

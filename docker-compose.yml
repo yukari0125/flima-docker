@@ -1,0 +1,58 @@
+services:
+  app:
+    build: ./docker/php
+    container_name: flima-app
+    volumes:
+      - ./src:/var/www
+    depends_on:
+      - db
+
+  web:
+    build: ./docker/nginx
+    container_name: flima-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www
+    depends_on:
+      - app
+
+  db:
+    image: mysql:8.0
+    container_name: flima-db
+    environment:
+      MYSQL_DATABASE: flima
+      MYSQL_USER: flima
+      MYSQL_PASSWORD: flima
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: flima-phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_USER: flima
+      PMA_PASSWORD: flima
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: flima-mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+
+  node:
+    image: node:20-alpine
+    container_name: flima-node
+    working_dir: /var/www
+    volumes:
+      - ./src:/var/www
+
+volumes:
+  db-data:
