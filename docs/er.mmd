@@ -1,4 +1,6 @@
 %% purchases は Stripe 有効時、Checkout 完了後（payment_status=paid 確認後）に保存
+%% favorites は (user_id, item_id) の複合ユニーク
+%% category_item は (item_id, category_id) の複合ユニーク
 erDiagram
     USERS {
         bigint id PK
@@ -6,6 +8,7 @@ erDiagram
         string email UK
         timestamp email_verified_at
         string password
+        string remember_token
         string postal_code
         string address
         string building
@@ -42,6 +45,7 @@ erDiagram
         bigint id PK
         bigint item_id FK
         bigint category_id FK
+        string item_id_category_id UK
         timestamp created_at
         timestamp updated_at
     }
@@ -59,6 +63,7 @@ erDiagram
         bigint id PK
         bigint user_id FK
         bigint item_id FK
+        string user_id_item_id UK
         timestamp created_at
         timestamp updated_at
     }

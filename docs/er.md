@@ -3,6 +3,8 @@
 業務テーブル（`users`, `items`, `categories`, `category_item`, `comments`, `favorites`, `purchases`）のER図です。  
 現在はカテゴリを `items.category_id` ではなく、`category_item` で多対多管理しています。
 購入データ（`purchases`）は、Stripe有効時はCheckout完了後（`payment_status=paid`確認後）に保存されます。
+- `favorites` は (`user_id`, `item_id`) の複合ユニーク制約があります。
+- `category_item` は (`item_id`, `category_id`) の複合ユニーク制約があります。
 
 - Mermaid定義: `docs/er.mmd`
 - 提出用画像: `docs/er.png`
@@ -10,6 +12,8 @@
 ![ER図](er.png)
 
 ```mermaid
+%% favorites は (user_id, item_id) の複合ユニーク
+%% category_item は (item_id, category_id) の複合ユニーク
 erDiagram
     USERS {
         bigint id PK
@@ -17,6 +21,7 @@ erDiagram
         string email UK
         timestamp email_verified_at
         string password
+        string remember_token
         string postal_code
         string address
         string building
@@ -53,6 +58,7 @@ erDiagram
         bigint id PK
         bigint item_id FK
         bigint category_id FK
+        string item_id_category_id UK
         timestamp created_at
         timestamp updated_at
     }
@@ -70,6 +76,7 @@ erDiagram
         bigint id PK
         bigint user_id FK
         bigint item_id FK
+        string user_id_item_id UK
         timestamp created_at
         timestamp updated_at
     }
