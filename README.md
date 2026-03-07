@@ -122,7 +122,13 @@ docker compose exec app php artisan migrate --seed
 docker compose exec app php artisan storage:link
 ```
 
-7. フロントエンドビルド
+7. 権限付与
+
+```bash
+docker compose exec app chmod -R 777 storage bootstrap/cache
+```
+
+8. フロントエンドビルド
 
 ```bash
 docker compose run --rm node npm install
